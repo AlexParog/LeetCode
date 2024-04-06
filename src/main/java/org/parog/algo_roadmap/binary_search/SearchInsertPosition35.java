@@ -1,4 +1,4 @@
-package org.parog;
+package org.parog.algo_roadmap.binary_search;
 
 /**
  * 1.

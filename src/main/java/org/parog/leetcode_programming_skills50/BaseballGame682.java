@@ -1,4 +1,4 @@
-package org.parog;
+package org.parog.leetcode_programming_skills50;
 
 import java.util.LinkedList;
 

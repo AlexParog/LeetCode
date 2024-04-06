@@ -1,6 +1,7 @@
-package org.parog;
+package org.parog.algo_roadmap.binary_search;
 
 import org.junit.jupiter.api.Test;
+import org.parog.algo_roadmap.binary_search.GuessNumberHigherOrLower374;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
