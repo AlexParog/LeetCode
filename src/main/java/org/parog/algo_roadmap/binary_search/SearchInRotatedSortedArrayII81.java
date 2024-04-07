@@ -4,46 +4,48 @@ package org.parog.algo_roadmap.binary_search;
  * 1.
  * Диапазон nums.length: 1 <= nums.length <= 5000
  * Диапазон nums[i]: -10^4 <= nums[i] <= 10^4
- * Все значения массива nums уникальны и массив nums отсортирован в возрастающем порядке
+ * Целочисленный массив nums, отсортированный в неубывающем порядке (не обязательно с разными значениями)
  * Диапазон target: -10^4 <= target <= 10^4
  * 2.
- * Тестовый класс {@link SearchInRotatedSortedArray33Test}
+ * Тестовый класс {@link SearchInRotatedSortedArrayII81Test}
  * 3.
- * Ограничение по времени: O(logN) - бинарный поиск
+ * Ограничение по времени:
+ * в худшем случае, когда можно дубликатов - O(n), где n количество элементов массива
+ * <p>
+ * в среднем - O(logN), так как используется бинарный поиск
  * Ограничение по памяти: O(1) - константное время, так как алгоритм использует только фиксированное количество переменных,
  * независимо от размера входного массива nums
  */
-public class SearchInRotatedSortedArray33 {
-    public static int search(int[] nums, int target) {
+public class SearchInRotatedSortedArrayII81 {
+    public static boolean search(int[] nums, int target) {
+        if (nums.length == 0) return false;
+
         int left = 0;
         int right = nums.length - 1;
-        int ans = -1;
-
         while (left <= right) {
             int mid = (left + right) / 2;
-            if (nums[mid] == target) return mid;
-            // гарантируем, что левый подмассив отсортирован
-            if (nums[left] <= nums[mid]) {
+            if (nums[mid] == target) return true;
+
+            //if there are duplicates
+            // если элементы являются дубликатами
+            if (nums[left] == nums[mid] && nums[mid] == nums[right]) {
+                left++;
+                right--;
+            } else if (nums[left] <= nums[mid]) { // левая половина отсортирована
                 if (isTargetInLeftSortedArr(nums, target, mid, left)) {
-                    // исключаем правую половину
                     right = mid - 1;
                 } else {
-                    // исключаем левую половину
                     left = mid + 1;
                 }
-                // гарантируем, что правый подмассив отсортирован
-            } else {
+            } else { // правая половина отсортирована
                 if (isTargetInRightSortedArr(nums, target, mid, right)) {
-                    // исключаем левую половину
                     left = mid + 1;
                 } else {
-                    // исключаем правую половину
                     right = mid - 1;
                 }
             }
         }
-
-        return ans;
+        return false;
     }
 
     /**
