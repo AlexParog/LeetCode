@@ -15,37 +15,21 @@ package org.parog.algo_roadmap.binary_search;
 public class PeakIndexInAMountainArray852 {
     public static int peakIndexInMountainArray(int[] arr) {
         if (arr.length < 3) return -1;
+        if (arr[0] > arr[1]) return -1;
+        if (arr[arr.length - 1] > arr[arr.length - 2]) return -1;
 
         int left = 0;
         int right = arr.length - 1;
         while (left < right) {
             int mid = (left + right) / 2;
-            if (mid > 0 && mid < arr.length - 1) {
-                if (isPeak(arr, mid)) {
-                    return mid;
-                } else if (arr[mid] < arr[mid + 1]) { // Если элемент справа от mid больше, значит мы в восходящей части
-                    left = mid + 1;
-                } else { // Иначе, мы в нисходящей части
-                    right = mid;
-                }
+            if (arr[mid] > arr[mid + 1]) { // спускаем с вершины
+                right = mid;
             } else {
-                // Если мы на границах, peak по определению быть не может
-                return -1;
+                left = mid + 1; // идем на вершину
             }
         }
         // После выхода из цикла left будет указывать на peak
         return left;
-    }
-
-    /**
-     * Является ли текущее положением вершиной
-     *
-     * @param arr массив
-     * @param mid средний элемент
-     * @return true - да, false - находимся на uphill/downhill
-     */
-    private static boolean isPeak(int[] arr, int mid) {
-        return arr[mid] > arr[mid - 1] && arr[mid] > arr[mid + 1];
     }
 
     /**
