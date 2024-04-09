@@ -7,7 +7,7 @@ package org.parog.algo_roadmap.binary_search;
  * 2.
  * Тестовый класс {@link FirstBadVersion278Test}
  * 3.
- * Ограничения по времени: O(lonN), где n - количество версий
+ * Ограничения по времени: O(logN), где n - количество версий
  * Ограничения по памяти: O(1) - используем только входящие константы
  */
 public class FirstBadVersion278 {
