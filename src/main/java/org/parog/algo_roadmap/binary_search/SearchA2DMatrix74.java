@@ -19,7 +19,7 @@ public class SearchA2DMatrix74 {
         // определяем индекс строки матрицы, где должен присутствовать искомый элемент
         while (firstLine <= lastLine) {
             int midLine = (firstLine + lastLine) / 2;
-            // находим target в диапазоне
+            // находим target в диапазоне (от первого элемента строки до последнего элемента строки)
             if (target <= matrix[midLine][matrix[midLine].length - 1] &&
                     target >= matrix[midLine][0]) {
                 lineIndex = midLine;
@@ -39,7 +39,7 @@ public class SearchA2DMatrix74 {
     }
 
     /**
-     * Бинарная сортировка в нужно строке матрицы.
+     * Бинарная сортировка в нужной строке матрицы.
      *
      * @param matrix    матрица
      * @param lineIndex индекс строки матрицы
