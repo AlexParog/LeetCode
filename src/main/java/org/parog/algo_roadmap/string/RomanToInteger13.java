@@ -1,4 +1,4 @@
-package org.parog.leetcode_programming_skills50;
+package org.parog.algo_roadmap.string;
 
 /**
  * 1.
@@ -7,12 +7,7 @@ package org.parog.leetcode_programming_skills50;
  * Какое максимальное и минимальное допустимое значение? 3999 и 1
  * <p>
  * 2.
- * 1) "" - пустая
- * 2) "III" - 3
- * 3) "MCMXCIV" - 1994
- * 4) "MMMCMXCIX" - 3999
- * 5) "CDXCIX" - 499
- * 6) "MCMXCIX" - 1999
+ * Тестовый класс {@link RomanToInteger13Test}
  * <p>
  * 3.
  * Итерация по строке, где каждый символ конвертируем специальным методом convertRomanToInteger, где внутри используем
@@ -26,7 +21,7 @@ package org.parog.leetcode_programming_skills50;
  * Память O(n) - храним в массиве символом строку и используем константное кол-во дополнительной памяти
  */
 public class RomanToInteger13 {
-    public int romanToInt(String s) {
+    public static int romanToInt(String s) {
         if ("".equals(s)) {
             return 0;
         }
