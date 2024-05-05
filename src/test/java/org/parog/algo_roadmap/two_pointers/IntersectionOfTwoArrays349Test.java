@@ -15,27 +15,27 @@ public class IntersectionOfTwoArrays349Test {
     }
 
     @Test
-    void MergeSortedArray88Test2() {
+    void IntersectionOfTwoArrays349Test2() {
         assertThat(IntersectionOfTwoArrays349.intersectionHashSet(new int[]{4, 9, 5}, new int[]{9, 4, 9, 8, 4}))
                 .isEqualTo(new int[]{9, 4});
     }
 
     @Test
-    void MergeSortedArray88Test3() {
+    void IntersectionOfTwoArrays349Test3() {
         assertThat(IntersectionOfTwoArrays349
                 .intersectionHashSetFunctionalStyle(new int[]{4, 9, 5}, new int[]{9, 4, 9, 8, 4}))
                 .isEqualTo(new int[]{9, 4});
     }
 
     @Test
-    void MergeSortedArray88Test4() {
+    void IntersectionOfTwoArrays349Test4() {
         assertThat(IntersectionOfTwoArrays349
                 .intersectionTwoPointers(new int[]{4, 9, 5}, new int[]{9, 4, 9, 8, 4}))
                 .isEqualTo(new int[]{4, 9});
     }
 
     @Test
-    void MergeSortedArray88Test5() {
+    void IntersectionOfTwoArrays349Test5() {
         assertThat(IntersectionOfTwoArrays349
                 .intersectionTwoPointers(new int[]{4, 9, 5, 10, 10, 12, 13, 1000}, new int[]{9, 8, 4, 1000, 10, 10}))
                 .isEqualTo(new int[]{4, 9, 10, 1000});
