@@ -67,7 +67,7 @@ public class TwoSumII_InputArrayIsSorted167 {
             int high = numbers.length - 1;
             int complement = target - numbers[i];
             while (low <= high) {
-                int mid = low + (high - low) / 2;
+                int mid = (low + high) / 2;
                 if (numbers[mid] == complement) {
                     return new int[]{i + 1, mid + 1};
                 } else if (numbers[mid] < complement) {
@@ -77,6 +77,7 @@ public class TwoSumII_InputArrayIsSorted167 {
                 }
             }
         }
+
         return new int[]{-1, -1};
     }
 }
