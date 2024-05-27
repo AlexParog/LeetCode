@@ -77,7 +77,7 @@ public class TopKFrequentElements347 {
         Map<Integer, Integer> frequency = new HashMap<>();
 
         for (int num : nums) {
-            frequency.put(num, frequency.getOrDefault(num, 0) + 1);
+            frequency.merge(num, 1, Integer::sum);
         }
 
         List<Map.Entry<Integer, Integer>> list = new ArrayList<>(frequency.entrySet());
@@ -90,5 +90,44 @@ public class TopKFrequentElements347 {
         }
 
         return topKElements;
+    }
+
+    /**
+     * Временная сложность: O(n), где n - количество элементов в массиве nums
+     * Пространственная сложность: O(n), где n - количество значений в массиве nums.
+     * Так как buckets хранит ровно n корзин и hashmap в худшем случае хранит n уникальных элементов.
+     *
+     * @param nums массив повторяющихся чисел
+     * @param k    ограничение
+     * @return самые повторяющиеся числа
+     */
+    public static int[] topKFrequentWithBucketSort(int[] nums, int k) {
+        Map<Integer, Integer> frequency = new HashMap<>();
+        List<List<Integer>> buckets = new ArrayList<>(nums.length + 1);
+
+        for (int num : nums) {
+            frequency.merge(num, 1, Integer::sum);
+        }
+
+        // инициализируем пустые корзины
+        for (int i = 0; i <= nums.length; i++) {
+            buckets.add(new ArrayList<>());
+        }
+
+        // заполняем корзины уникальными элементами
+        for (Map.Entry<Integer, Integer> entry : frequency.entrySet()) {
+            int freq = entry.getValue();
+            buckets.get(freq).add(entry.getKey());
+        }
+
+        // добавляем в результирующий список n-количество наиболее встречающихся элементов с конца,
+        // соблюдая ограничение K
+        List<Integer> result = new ArrayList<>();
+        for (int i = nums.length; i >= 0 && result.size() < k; i--) {
+            result.addAll(buckets.get(i));
+        }
+
+        // создаем массив из k значений и выводим ответ
+        return result.subList(0, k).stream().mapToInt(Integer::intValue).toArray();
     }
 }

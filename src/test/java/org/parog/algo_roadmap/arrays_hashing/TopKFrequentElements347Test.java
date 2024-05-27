@@ -16,7 +16,7 @@ public class TopKFrequentElements347Test {
 
     @Test
     void TopKFrequentElements347Test2() {
-        assertThat(TopKFrequentElements347.topKFrequentWithSort(new int[]{1, 1, 1, 2, 2, 3}, 2))
+        assertThat(TopKFrequentElements347.topKFrequentWithBucketSort(new int[]{1, 1, 1, 2, 2, 3}, 2))
                 .isEqualTo(new int[]{1, 2});
     }
 
