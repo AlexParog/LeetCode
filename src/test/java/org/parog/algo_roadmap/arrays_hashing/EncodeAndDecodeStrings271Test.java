@@ -6,6 +6,9 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Тестовый класс для решения задачи {@link EncodeAndDecodeStrings271}
+ */
 public class EncodeAndDecodeStrings271Test {
     @Test
     void EncodeAndDecodeStrings271Test1() {
