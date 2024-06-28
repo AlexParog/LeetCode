@@ -26,7 +26,9 @@ public class MergeTwoSortedLists21 {
 
         while (list1 != null && list2 != null) {
             if (list1.val < list2.val) {
+                // связываем с текущим элементом
                 previous.next = list1;
+                // перемещаемся на следующий связный элемент
                 list1 = list1.next;
             } else {
                 previous.next = list2;
@@ -35,6 +37,7 @@ public class MergeTwoSortedLists21 {
             previous = previous.next;
         }
 
+        // добавляем оставшиеся отсортированные элементы в конец
         previous.next = list1 != null ? list1 : list2;
         return root.next;
     }
