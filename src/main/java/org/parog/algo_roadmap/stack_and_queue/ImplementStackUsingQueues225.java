@@ -53,7 +53,7 @@ public class ImplementStackUsingQueues225 {
     }
 
     /**
-     * Проверяем, пуста ли очередь.
+     * Проверяем, пуст ли стек.
      *
      * @return {@code true} - пуста, {@code false} - существует хотя бы один элемент
      */
