@@ -18,38 +18,47 @@ public class ImplementStackUsingQueues225 {
         this.queue = new LinkedList<>();
     }
 
-    // Перемещает элемент x на вершину стека
+    /**
+     * O(n), где n — количество элементов в очереди. Мы перемещаем элементы, чтобы новый элемент оказался в начале.
+     *
+     * @param x число
+     */
     public void push(int x) {
         // queue FIFO: first in - first out
         // а мы используем LIFO: last in - first out, поэтому у нас инвертированный порядок
         // 1. Добавляем новый элемент в очередь.
         queue.add(x);
         // 2. Затем перемещаем все элементы, которые были до него, в конец очереди
-
+        for (int i = 0; i < queue.size() - 1; i++) {
+            queue.add(queue.remove());
+        }
     }
 
-    // Удаляет элемент, находящийся на вершине стека, и возвращает его.
+    /**
+     * O(1), так как просто удаляем первый элемент очереди.
+     *
+     * @return последний добавленный элемент LIFO
+     */
     public int pop() {
         return queue.remove();
     }
 
-    //Возвращает элемент, находящийся на вершине стека.
+    /**
+     * O(1), так как просто возвращаем первый элемент очереди.
+     *
+     * @return возвращаем первый элемент из очереди без его удаления.
+     */
     public int top() {
         return queue.element();
     }
 
-    // Возвращает true, если стек пуст, false - в противном случае.
+    /**
+     * Проверяем, пуста ли очередь.
+     *
+     * @return {@code true} - пуста, {@code false} - существует хотя бы один элемент
+     */
     public boolean empty() {
         return queue.isEmpty();
-    }
-
-    public static void main(String[] args) {
-        ImplementStackUsingQueues225 myStack = new ImplementStackUsingQueues225();
-        myStack.push(1);
-        myStack.push(2);
-        System.out.println(myStack.top()); // return 2
-        System.out.println(myStack.pop()); // return 2
-        System.out.println(myStack.empty());
     }
 }
 
