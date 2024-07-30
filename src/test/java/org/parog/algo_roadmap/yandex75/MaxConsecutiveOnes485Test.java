@@ -5,6 +5,9 @@ import org.parog.yandex75.MaxConsecutiveOnes485;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Тестовый класс для задачи {@link MaxConsecutiveOnes485}
+ */
 public class MaxConsecutiveOnes485Test {
     @Test
     void MaxConsecutiveOnes485Test1() {
