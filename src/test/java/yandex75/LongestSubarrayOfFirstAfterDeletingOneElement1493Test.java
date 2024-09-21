@@ -1,4 +1,4 @@
-package org.parog.algo_roadmap.yandex75;
+package yandex75;
 
 import org.junit.jupiter.api.Test;
 import org.parog.yandex75.LongestSubarrayOfFirstAfterDeletingOneElement1493;
