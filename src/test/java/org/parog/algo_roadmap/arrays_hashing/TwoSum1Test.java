@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Тестовый класс для задачи {@link TwoSum1}
+ */
 public class TwoSum1Test {
     @Test
     void TwoSum1Test1() {
