@@ -21,6 +21,9 @@ public class MergeTwoSortedLists21 {
      * @return объединенный связный список
      */
     public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        if (list1 == null) return list2;
+        if (list2 == null) return list1;
+
         final ListNode root = new ListNode();
         ListNode previous = root;
 

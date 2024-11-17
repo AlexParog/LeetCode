@@ -21,4 +21,53 @@ public class MergeTwoSortedLists21Test {
                                                         new ListNode(4,
                                                                 new ListNode(4, null)))))));
     }
+
+    @Test
+    void MergeTwoSortedLists21Test2() {
+        assertThat(MergeTwoSortedLists21.mergeTwoLists(
+                new ListNode(1, new ListNode(2, new ListNode(4, null))),
+                null))
+                .isEqualTo(
+                        new ListNode(1,
+                                new ListNode(2,
+                                        new ListNode(4, null))));
+    }
+
+    @Test
+    void MergeTwoSortedLists21Test3() {
+        assertThat(MergeTwoSortedLists21.mergeTwoLists(
+                null,
+                new ListNode(1, new ListNode(2, new ListNode(4, null)))))
+                .isEqualTo(
+                        new ListNode(1,
+                                new ListNode(2,
+                                        new ListNode(4, null))));
+    }
+
+    @Test
+    void MergeTwoSortedLists21Test4() {
+        assertThat(MergeTwoSortedLists21.mergeTwoLists(
+                new ListNode(1, null),
+                new ListNode(1, new ListNode(2, new ListNode(4, null)))))
+                .isEqualTo(
+                        new ListNode(1,
+                                new ListNode(1,
+                                        new ListNode(2,
+                                                new ListNode(4, null)))));
+    }
+
+    @Test
+    void MergeTwoSortedLists21Test5() {
+        assertThat(MergeTwoSortedLists21.mergeTwoLists(
+                new ListNode(1, new ListNode(1, new ListNode(4, new ListNode(10, null)))),
+                new ListNode(1, new ListNode(2, new ListNode(6, null)))))
+                .isEqualTo(
+                        new ListNode(1,
+                                new ListNode(1,
+                                        new ListNode(1,
+                                                new ListNode(2,
+                                                        new ListNode(4,
+                                                                new ListNode(6,
+                                                                        new ListNode(10, null))))))));
+    }
 }
