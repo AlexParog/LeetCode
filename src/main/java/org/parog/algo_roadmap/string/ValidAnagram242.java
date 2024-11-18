@@ -18,8 +18,8 @@ import java.util.Map;
  * Сложность по времени: O(N), где N - длина строки:
  * - Итерация по строкам и операции с хеш-таблицей (вставка и поиск) имеют в среднем сложность O(1).
  * - Поэтому общее время выполнения линейно зависит от длины строк.
- * Сложность по памяти: O(N) в худшем случае, когда все символы в строках разные.
- * - В этом случае в хеш-таблице будет храниться N элементов.
+ * Сложность по памяти: O(N+M) в худшем случае, когда все символы в строках разные.
+ * - В этом случае в хеш-таблице будет храниться N элементов строки S, M элементов строки T.
  */
 public class ValidAnagram242 {
     /**
@@ -30,7 +30,7 @@ public class ValidAnagram242 {
      * @return true - s и t анаграммы, иначе false
      */
     public static boolean isAnagram(String s, String t) {
-        if (s.isEmpty() && t.isEmpty()) return false;
+        if (s.isEmpty() || t.isEmpty()) return false;
 
         if (s.length() == t.length()) {
             return checkAnagram(s, t);
@@ -46,7 +46,8 @@ public class ValidAnagram242 {
      * @return true - s и t анаграммы, иначе false
      */
     public static boolean isAnagramV2(String s, String t) {
-        if (s.isEmpty() && t.isEmpty()) return false;
+        if (s.isEmpty() || t.isEmpty()) return false;
+        if (s.length() != t.length()) return false;
 
         Map<Character, Integer> hashMapS = new HashMap<>();
         Map<Character, Integer> hashMapT = new HashMap<>();
