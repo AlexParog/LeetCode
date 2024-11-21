@@ -1,4 +1,4 @@
-package org.parog.algo_roadmap.tree_and_graph;
+package org.parog.algo_roadmap.tree_graph_dfs_bfs;
 
 import org.junit.jupiter.api.Test;
 
