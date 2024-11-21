@@ -1,7 +1,7 @@
 package org.parog.algo_roadmap.linked_list;
 
 /**
- * Вспомогательный класс для решения задач Linked List
+ * Вспомогательный класс для решения задач Linked List (связные списки)
  */
 public class ListNode {
     int val;
