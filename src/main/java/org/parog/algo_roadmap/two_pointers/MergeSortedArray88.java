@@ -26,10 +26,7 @@ public class MergeSortedArray88 {
             else
                 nums1[insertionPosition--] = nums1[indexNums1--];
         }
-
-        // копирует оставшиеся элементы из nums1 в начало массива
-        while (indexNums1 >= 0)
-            nums1[insertionPosition--] = nums1[indexNums1--];
+        
         // копирует оставшиеся элементы из nums2 в начало nums1
         while (indexNums2 >= 0)
             nums1[insertionPosition--] = nums2[indexNums2--];
