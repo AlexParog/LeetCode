@@ -34,6 +34,24 @@ public class BalancedBinaryTree110 {
     }
 
     /**
+     * Рекурсивно вычисляем высоту веток деревьев, которая равна 1 (текущий узел) плюс
+     * максимум среди высот левого и правого поддерева.
+     *
+     * @param currentTreeNode текущий узел поддерева
+     * @return высота поддерева
+     */
+    private static int getTreeHeight(TreeNode currentTreeNode) {
+        if (currentTreeNode == null) {
+            return 0;
+        }
+
+        int leftTreeHeight = getTreeHeight(currentTreeNode.left);
+        int rightTreeHeight = getTreeHeight(currentTreeNode.right);
+
+        return 1 + Math.max(leftTreeHeight, rightTreeHeight);
+    }
+
+    /**
      * Временная сложность: O(N), где n - максимальное количество узлов в дереве, каждое из которых мы проходим ровно
      * один раз: одновременно проверяла баланс и возвращала высоту поддерева.
      * Пространственная сложность: O(N), так как мы используем рекурсию, то стек вызовов методов будет заполняться,
@@ -72,23 +90,5 @@ public class BalancedBinaryTree110 {
         }
 
         return new TreeInfo(true, 1 + Math.max(left.getHeight(), right.getHeight()));
-    }
-
-    /**
-     * Рекурсивно вычисляем высоту веток деревьев, которая равна 1 (текущий узел) плюс
-     * максимум среди высот левого и правого поддерева.
-     *
-     * @param currentTreeNode текущий узел поддерева
-     * @return высота поддерева
-     */
-    private static int getTreeHeight(TreeNode currentTreeNode) {
-        if (currentTreeNode == null) {
-            return 0;
-        }
-
-        int leftTreeHeight = getTreeHeight(currentTreeNode.left);
-        int rightTreeHeight = getTreeHeight(currentTreeNode.right);
-
-        return 1 + Math.max(leftTreeHeight, rightTreeHeight);
     }
 }
