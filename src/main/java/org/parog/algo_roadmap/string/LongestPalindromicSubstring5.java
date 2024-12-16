@@ -36,7 +36,7 @@ public class LongestPalindromicSubstring5 {
             if (oddLength.length() >= result.length()) {
                 result = oddLength;
             }
-            if (evenLength.length() > result.length()) {
+            if (evenLength.length() >= result.length()) {
                 result = evenLength;
             }
 
