@@ -10,32 +10,7 @@ package org.parog.algo_roadmap.string;
  */
 public class ReverseWordsInString151 {
     /**
-     * Временная сложность: O(N), где N количество слов во входной строке. Более компактный вариант с регуляркой.
-     * Пространственная сложность: O(N), где N количество слов во входной строке. Дополнительно создаем массив, чтобы
-     * хранить результирующую строку.
-     *
-     * @param s входящая строка
-     * @return инвертированнные слова в строке
-     */
-    public static String reverseWordsV2(String s) {
-        if (s == null || s.isEmpty()) {
-            return "";
-        }
-
-        // находит одно или несколько подряд идущих пробельных символов (удаляет)
-        String[] words = s.split("\\s+");
-
-        String[] result = new String[words.length];
-        int index = 0;
-        for (int i = words.length - 1; i >= 0; i--) {
-            result[index++] = words[i];
-        }
-
-        return String.join(" ", result).trim();
-    }
-
-    /**
-     * Временная сложность: O(N), где N количество слов во входной строке.
+     * Временная сложность: O(N), где N количество слов во входной строке (5ms на LeetCode).
      * Пространственная сложность: O(N), где N количество слов во входной строке. Дополнительно создаем StringBuilder,
      * чтобы хранить результирующую строку.
      *
@@ -61,5 +36,30 @@ public class ReverseWordsInString151 {
         }
 
         return resultS.toString();
+    }
+
+    /**
+     * Временная сложность: O(N), где N количество слов во входной строке. Более компактный вариант с регуляркой (8ms на LeetCode).
+     * Пространственная сложность: O(N), где N количество слов во входной строке. Дополнительно создаем массив, чтобы
+     * хранить результирующую строку.
+     *
+     * @param s входящая строка
+     * @return инвертированнные слова в строке
+     */
+    public static String reverseWordsV2(String s) {
+        if (s == null || s.isEmpty()) {
+            return "";
+        }
+
+        // находит одно или несколько подряд идущих пробельных символов (удаляет)
+        String[] words = s.split("\\s+");
+
+        String[] result = new String[words.length];
+        int index = 0;
+        for (int i = words.length - 1; i >= 0; i--) {
+            result[index++] = words[i];
+        }
+
+        return String.join(" ", result).trim();
     }
 }
