@@ -19,12 +19,10 @@ public class ContainsDuplicate217 {
     public static boolean containsDuplicateWithSet(int[] nums) {
         Set<Integer> seen = new HashSet<>();
 
-        for (int num: nums) {
-            if (seen.contains(num)) {
+        for (int num : nums) {
+            if (!seen.add(num)) {
                 return true;
             }
-            seen.add(num);
-
         }
 
         return false;
