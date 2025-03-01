@@ -13,8 +13,8 @@ public class GroupAnagrams49Test {
     @Test
     void GroupAnagrams49Test1() {
         assertThat(GroupAnagrams49.groupAnagramsWithHashCode(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}))
-                .isEqualTo(List.of(List.of("eat", "tea", "ate"),
-                        List.of("bat"),
+                .isEqualTo(List.of(List.of("bat"),
+                        List.of("eat", "tea", "ate"),
                         List.of("tan", "nat")));
     }
 
