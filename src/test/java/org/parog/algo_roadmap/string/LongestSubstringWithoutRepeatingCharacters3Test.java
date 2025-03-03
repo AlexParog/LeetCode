@@ -11,7 +11,7 @@ public class LongestSubstringWithoutRepeatingCharacters3Test {
 
     @Test
     void LongestSubstringWithoutRepeatingCharacters3Test1() {
-        assertThat(LongestSubstringWithoutRepeatingCharacters3.lengthOfLongestSubstring("abcabcbb"))
+        assertThat(LongestSubstringWithoutRepeatingCharacters3.optimizedLengthOfLongestSubstring("abcabcbb"))
                 .isEqualTo(3);
     }
 
