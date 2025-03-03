@@ -65,10 +65,15 @@ public class LongestSubstringWithoutRepeatingCharacters3 {
         for (int end = 0; end < s.length(); end++) {
             char currentChar = s.charAt(end);
 
+            // charToLastIndex[currentChar] содержит end + 1 из предыдущих итераций.
+            // Если это значение больше start, значит, символ уже встречался в текущем окне, и мы обновляем start
             if (charToLastIndex[currentChar] > start) {
                 start = charToLastIndex[currentChar];
             }
 
+            // необходимо добавить единицу, чтобы избежать неоднозначности в вопросе: существует ли символ в массиве или нет
+            // charToLastIndex[currentChar] == 0, это означает, что символ еще не встречался
+            // charToLastIndex[currentChar] > 0, это означает, что символ встречался на индексе charToLastIndex[currentChar] - 1
             charToLastIndex[currentChar] = end + 1;
             totalLength = Math.max(totalLength, end - start + 1);
         }
