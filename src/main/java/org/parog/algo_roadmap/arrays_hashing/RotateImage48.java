@@ -41,4 +41,46 @@ public class RotateImage48 {
         }
         return matrix;
     }
+
+    /**
+     * Временная сложность: O(N^2), проходим по каждому элементу матрицы ровно один раз
+     * Пространственная сложность: O(1), так как не используем дополнительных структур данных (in-place алгоритм).
+     *
+     * @param matrix входящая матрица
+     * @return матрица, повернутая на 90 градусов по часовой стрелке
+     */
+    public static int[][] optimizedRotate(int[][] matrix) {
+        // границы внешнего квадрата(вертикальная и горизонтальная ось)
+        int left = 0;
+        int right = matrix.length - 1;
+
+        // пока границы не пересекутся
+        while (left < right) {
+            // смещение по стороне квадрата относительного его начала стороны
+            for (int i = 0; i < right - left; i++) {
+                // для удобства: верхняя и нижняя точка
+                int top = left;
+                int bottom = right;
+
+                // используем одну доп. переменную для сохранения
+                int topLeft = matrix[top][left + i];
+
+                // перемещаем нижнюю левую точку в верхнюю правую
+                matrix[top][left + i] = matrix[bottom - i][left];
+
+                // перемещаем нижнюю правую точку в левую нижнюю точку
+                matrix[bottom - i][left] = matrix[bottom][right - i];
+
+                // перемещаем правую верхнюю точку в правую нижнюю точку
+                matrix[bottom][right - i] = matrix[top + i][right];
+
+                // перемещаем верхнюю левую точку в правую верхнюю точку
+                matrix[top + i][right] = topLeft;
+            }
+            left++;
+            right--;
+        }
+
+        return matrix;
+    }
 }

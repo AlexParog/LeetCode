@@ -21,7 +21,7 @@ public class RotateImage48Test {
 
     @Test
     void RotateImage48Test2() {
-        assertThat(RotateImage48.rotate(new int[][]{
+        assertThat(RotateImage48.optimizedRotate(new int[][]{
                 {5, 1, 9, 11},
                 {2, 4, 8, 10},
                 {13, 3, 6, 7},
