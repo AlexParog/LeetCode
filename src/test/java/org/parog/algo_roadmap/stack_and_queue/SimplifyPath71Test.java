@@ -29,4 +29,9 @@ public class SimplifyPath71Test {
     void SimplifyPath71Test4() {
         assertThat(SimplifyPath71.optimizedSimplifyPath("/.../a/../b/c/../d/./")).isEqualTo("/.../b/d");
     }
+
+    @Test
+    void SimplifyPath71Test5() {
+        assertThat(SimplifyPath71.optimizedSimplifyPath("/../")).isEqualTo("/");
+    }
 }

@@ -33,10 +33,17 @@ public class SimplifyPath71 {
         Deque<String> stack = new ArrayDeque<>();
 
         for (String word : words) {
+            //  если это "" и ".", то идем дальше
+            if (word.isEmpty() || word.equals(".")) {
+                continue;
+            }
+
             // удаляем родительскую директорию, которая лежит последней в стеке
-            if (!stack.isEmpty() && "..".equals(word)) {
-                stack.pollLast();
-            } else if (!word.isEmpty() && !".".equals(word)) { // добавляем директория, если это не "" и не "."
+            if ("..".equals(word)) {
+                if (!stack.isEmpty()) {
+                    stack.pollLast();
+                }
+            } else { // добавляем директорию
                 stack.addLast(word);
             }
         }
