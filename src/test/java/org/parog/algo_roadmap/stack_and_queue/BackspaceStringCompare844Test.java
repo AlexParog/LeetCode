@@ -1,4 +1,4 @@
-package org.parog.algo_roadmap.two_pointers;
+package org.parog.algo_roadmap.stack_and_queue;
 
 import org.junit.jupiter.api.Test;
 
