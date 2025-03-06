@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ValidPalindrome125Test {
     @Test
     void ValidPalindrome125Test1() {
-        assertThat(ValidPalindrome125.isPalindromeWithFuncStyle("A man, a plan, a canal: Panama"))
+        assertThat(ValidPalindrome125.isPalindrome("A man, a plan, a canal: Panama"))
                 .isEqualTo(true);
     }
 

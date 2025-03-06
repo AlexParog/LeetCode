@@ -14,6 +14,38 @@ import java.util.stream.IntStream;
  * Сложность по памяти: O(N) в худшем случае, когда очищенная строка имеет ту же длину, что и исходная.
  */
 public class ValidPalindrome125 {
+
+    /**
+     * Временная сложность: O(N), где N - длина входной строки.
+     * Пространственная сложность: O(1), так как не используется дополнительных структур данных.
+     *
+     * @param s входящая строка
+     * @return true, если строка является палиндромом
+     */
+    public static boolean isPalindrome(String s) {
+        int left = 0;
+        int right = s.length() - 1;
+
+        while (left <= right) {
+            char start = s.toLowerCase().charAt(left);
+            char end = s.toLowerCase().charAt(right);
+
+            if (!Character.isLetterOrDigit(start)) {
+                left++;
+            } else if (!Character.isLetterOrDigit(end)) {
+                right--;
+            } else {
+                if (start != end) {
+                    return false;
+                }
+                left++;
+                right--;
+            }
+        }
+
+        return true;
+    }
+
     /**
      * Проверяет, является ли строка палиндромом, используя регулярные выражения для очистки строки.
      * <p>
