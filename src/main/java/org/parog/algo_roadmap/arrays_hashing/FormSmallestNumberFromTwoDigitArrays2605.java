@@ -12,6 +12,14 @@ import java.util.Set;
  * Тестовый класс {@link FormSmallestNumberFromTwoDigitArrays2605Test}
  */
 public class FormSmallestNumberFromTwoDigitArrays2605 {
+    /**
+     * Временная сложность: O(N + M), где N - количество чисел в nums1, M - количество чисел в nums2.
+     * Пространственная сложность: O(1), так как используется массив фиксированной длины.
+     *
+     * @param nums1 входящий массив nums1
+     * @param nums2 входящий массив nums1
+     * @return минимальное число (1 разряд или 2 разряда)
+     */
     public static int optimizedMinNumber(int[] nums1, int[] nums2) {
         // частота повторения цифр в массиве nums1 и nums2
         int[] frequency = new int[10];
@@ -40,6 +48,15 @@ public class FormSmallestNumberFromTwoDigitArrays2605 {
         return Math.min(firstMin * 10 + secondMin, secondMin * 10 + firstMin);
     }
 
+    /**
+     * Временная сложность: O(N + M), где N - количество чисел в nums1, M - количество чисел в nums2.
+     * Пространственная сложность: O(N), так как в худшем случае (если все элементы уникальны) множество set занимает O(N)
+     * дополнительной памяти.
+     *
+     * @param nums1 входящий массив nums1
+     * @param nums2 входящий массив nums1
+     * @return минимальное число (1 разряд или 2 разряда)
+     */
     public static int minNumber(int[] nums1, int[] nums2) {
         int firstMin = 10;
         for (int num : nums1) {
