@@ -12,18 +12,18 @@ package org.parog.yandex75;
  */
 public class MaxConsecutiveOnes485 {
     public static int findMaxConsecutiveOnes(int[] nums) {
-        int maxConsecutiveOnes = 0;
-        int currentConsecutiveOnes = 0;
+        int globalMax = -1;
+        int localMax = 0;
 
         for (int num : nums) {
-            if (num == 1) {
-                currentConsecutiveOnes++;
-                maxConsecutiveOnes = Math.max(maxConsecutiveOnes, currentConsecutiveOnes);
-            } else {
-                currentConsecutiveOnes = 0;
+            if (num == 0) {
+                globalMax = Math.max(globalMax, localMax);
+                localMax = 0;
+                continue;
             }
+            localMax++;
         }
 
-        return maxConsecutiveOnes;
+        return Math.max(globalMax, localMax);
     }
 }
