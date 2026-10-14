@@ -1,4 +1,4 @@
-package org.parog.leetcode_programming_skills50;
+package org.parog.algo_roadmap.arrays_hashing;
 
 /**
  * 1.
