@@ -10,11 +10,13 @@ import java.util.Objects;
  * строка moves содержит символы 'U', 'D', 'L' and 'R'.
  * 2.
  * Тестовый класс {@link RobotReturnToOrigin657Test}
- * 3.
- * Сложность по времени:
- * Сложность по памяти:
  */
 public class RobotReturnToOrigin657 {
+
+    /**
+     * Сложность по времени: O(N), где N - количество символов во входящей строке
+     * Сложность по памяти: O(1), так как количество уникальных ключей фиксировано.
+     */
     public static boolean judgeCircleV1(String moves) {
         if (moves.length() % 2 == 1) {
             return false;
@@ -28,6 +30,10 @@ public class RobotReturnToOrigin657 {
         return Objects.equals(charCountMap.get('U'), charCountMap.get('D')) && Objects.equals(charCountMap.get('L'), charCountMap.get('R'));
     }
 
+    /**
+     * Сложность по времени: O(N), где N - количество символов во входящей строке
+     * Сложность по памяти: O(1), не создаем доп. памяти
+     */
     public static boolean judgeCircleV2(String moves) {
         if (moves.length() % 2 == 1) {
             return false;
